@@ -32,10 +32,10 @@ The project demonstrates how to implement authentication from scratch using Fast
    Update this in `database.py`:
 
    ```python
-   SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
+   SQLALCHEMY_DATABASE_URL = "postgresql://postgres:<password>@localhost:5432/AuthenticatorAPI"
    ```
 
-   *(You can replace SQLite with PostgreSQL if needed.)*
+   *(You can replace PostgreSQL with SQLite if needed.)*
 
 3. **Run the API server**
 

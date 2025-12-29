@@ -1,0 +1,14 @@
+# FastAPI framework for building REST API
+fastapi==0.104.1
+
+# ASGI server to run FastAPI
+uvicorn==0.24.0
+
+# Machine learning library for training model
+scikit-learn==1.3.2
+
+# For saving and loading trained models
+joblib==1.3.2
+
+# Data validation (comes with FastAPI but explicit for clarity)
+pydantic==2.5.0
