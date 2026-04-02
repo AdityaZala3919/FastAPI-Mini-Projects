@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FastAPI Middleware Tester</title>
+</head>
+<body>
+
+<h2>FastAPI Middleware Test</h2>
+
+<label>API Key:</label>
+<input id="apikey" placeholder="Enter API key">
+<br><br>
+
+<button onclick="getUsers()">Get Users</button>
+<button onclick="getProducts()">Get Products</button>
+
+<h3>Response</h3>
+<pre id="output"></pre>
+
+<h3>Headers</h3>
+<pre id="headers"></pre>
+
+<h3>Response Time</h3>
+<p id="time">-</p>
+
+<h3>Total Requests Sent</h3>
+<p id="count">0</p>
+
+<script>
+
+const API = "http://localhost:8000"
+
+let requestCount = 0
+
+function updateRequestCount(){
+    requestCount++
+    document.getElementById("count").textContent = requestCount
+}
+
+function showResponse(data){
+    document.getElementById("output").textContent = data
+}
+
+function showHeaders(headers){
+    let result = ""
+    headers.forEach((value, key)=>{
+        result += key + ": " + value + "\n"
+    })
+    document.getElementById("headers").textContent = result
+}
+
+function showTime(headers){
+    const time = headers.get("x-process-time")
+    if(time){
+        document.getElementById("time").textContent = time + " seconds"
+    }else{
+        document.getElementById("time").textContent = "Not available"
+    }
+}
+
+async function getUsers(){
+
+    updateRequestCount()
+
+    const key = document.getElementById("apikey").value
+
+    try{
+
+        const res = await fetch(`${API}/users`,{
+            headers:{
+                "x-api-key": key
+            }
+        })
+
+        const text = await res.text()
+
+        showResponse(text)
+        showHeaders(res.headers)
+        showTime(res.headers)
+
+    }catch(err){
+        showResponse(err)
+    }
+}
+
+async function getProducts(){
+
+    updateRequestCount()
+
+    const key = document.getElementById("apikey").value
+
+    try{
+
+        const res = await fetch(`${API}/products`,{
+            headers:{
+                "x-api-key": key
+            }
+        })
+
+        const text = await res.text()
+
+        showResponse(text)
+        showHeaders(res.headers)
+        showTime(res.headers)
+
+    }catch(err){
+        showResponse(err)
+    }
+}
+
+</script>
+
+</body>
+</html>

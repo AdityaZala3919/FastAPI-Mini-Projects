@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Test</title>
+</head>
+<body>
+
+<h2>CORS Testing Page</h2>
+
+<button onclick="getUsers()">GET Users</button>
+<button onclick="getUsersAuth()">GET Users (Authorization Header)</button>
+<button onclick="deleteUser()">DELETE User</button>
+<button onclick="updateUser()">PUT User</button>
+
+<pre id="output"></pre>
+
+<script>
+
+const API = "http://localhost:8000"
+
+function show(data){
+    document.getElementById("output").textContent = data
+}
+
+async function getUsers(){
+    try{
+        // const res = await fetch(`${API}/users`)
+        const res = await fetch(`${API}/users`,{
+            credentials:"include"
+        })
+        const data = await res.text()
+        show(data)
+    }catch(err){
+        show(err)
+    }
+}
+
+async function getUsersAuth(){
+    try{
+        const res = await fetch(`${API}/users`,{
+            method:"GET",
+            headers:{
+                "Authorization":"Bearer testtoken"
+            }
+        })
+        const data = await res.text()
+        show(data)
+    }catch(err){
+        show(err)
+    }
+}
+
+async function deleteUser(){
+    try{
+        const res = await fetch(`${API}/users`,{
+            method:"DELETE"
+        })
+        const data = await res.text()
+        show(data)
+    }catch(err){
+        show(err)
+    }
+}
+
+async function updateUser(){
+    try{
+        const res = await fetch(`${API}/users`,{
+            method:"PUT",
+            headers:{
+                "Authorization":"Bearer token",
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({name:"Alice"})
+        })
+        const data = await res.text()
+        show(data)
+    }catch(err){
+        show(err)
+    }
+}
+
+</script>
+
+</body>
+</html>
