@@ -2,8 +2,12 @@ from typing import AsyncIterator
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import declarative_base
+import os
+from dotenv import load_dotenv
 
-DB_URI = "postgresql+asyncpg://postgres:postgres@localhost:5432/prompt_versioning"
+load_dotenv()
+
+DB_URI = os.getenv("POSTGRES_URI")
 
 engine = create_async_engine(
     url=DB_URI,
