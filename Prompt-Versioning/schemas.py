@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 from typing import TypeVar, Generic, Optional, List
 from datetime import datetime
 from fastapi import status
@@ -64,4 +64,15 @@ class GetAgentRequest(BaseModel):
     agent_id: Optional[UUID] = None
     agent_name: Optional[str] = None
 
+class StartTaskRequest(BaseModel):
+    user_input: str
+    
+class StartTaskResponse(BaseModel):
+    task_id: UUID
+    status: str
 
+class TaskResponse(BaseModel):
+    id: UUID
+    agent_id: UUID
+    status: str
+    result: Optional[str] = None

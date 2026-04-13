@@ -21,6 +21,9 @@ from schemas import (
     GetAgentRequest,
     UpdatePromptRequest,
     UpdateAgentRequest,
+    StartTaskRequest,
+    StartTaskResponse,
+    TaskResponse,
 )
 from database import get_session, init_db
 from services import PromptServices, AgentServices, ResponseService
@@ -123,19 +126,22 @@ async def delete_agent(
 
 # -------------------------------------------------------------------------
 
-@app.get("/agent/response/{agent_id}", tags=["Response"])
-async def get_response(
-    agent_id: UUID = Path(...),
-    user_input: str = Query(...),
-):
-    pass
-
-@app.get("/test-prompt")
-async def test_prompt(
-    agent_id: UUID,
+@app.post("/agent/task/{agent_id}", tags=["Response"])
+async def start_agent_task(
     service: Annotated[ResponseService, Depends()],
-):
-    return await service.get_agent_response(
-        agent_id=agent_id,
-        user_input="test input"
-    )
+    agent_id: Annotated[UUID, Path()],
+    request: Annotated[StartTaskRequest, Body()],
+) -> BaseResponse[StartTaskResponse]:
+    return BaseResponse(data=await service.start_llm_task(agent_id=agent_id, task_id=uuid4(), user_input=request.user_input))    
+    # return await service.start_llm_task(
+    #     task_id=task_id,
+    #     agent_id=agent_id,
+    #     user_input=user_input,
+    # )
+
+@app.get("/agent/result/{task_id}", tags=["Response"])
+async def get_result(
+    service: Annotated[ResponseService, Depends()],
+    task_id: Annotated[UUID, Path()],
+) -> BaseResponse[TaskResponse]:
+    return BaseResponse(data=await service.get_task_info(task_id=task_id))

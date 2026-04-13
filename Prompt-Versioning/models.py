@@ -10,6 +10,7 @@ from sqlalchemy import (
     ForeignKey,
     Text,
     Index,
+    JSON,
 )
 
 from database import Base
@@ -35,3 +36,11 @@ class Agents(Base):
     model_name: Mapped[str] = mapped_column(String, nullable=False)
     temperature: Mapped[float] = mapped_column(Float, default=0.7)
     max_output_tokens: Mapped[int] = mapped_column(Integer, default=8192)
+
+class Tasks(Base):
+    __tablename__ = "tasks"
+
+    id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), primary_key=True)
+    agent_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True))
+    status: Mapped[str] = mapped_column(String, default="pending")
+    result: Mapped[dict] = mapped_column(JSON, nullable=True)    

@@ -1,13 +1,12 @@
 from typing import Annotated
 from uuid import uuid4, UUID
 import asyncio
-import aisuite as ai
-
-{
-    "openai": {"api_key": "your_openai_api_key"},
-}
-
-client = ai.Client()
+import httpx
+import json
+import os
+from datetime import datetime
+from dotenv import load_dotenv
+from groq import Groq, AsyncGroq
 
 from fastapi import Depends, status, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -17,8 +16,19 @@ from fastapi.responses import RedirectResponse
 from sqlalchemy import select, func
 
 from database import get_session
-from models import Prompts, Agents
-from schemas import PromptResponse
+from models import Prompts, Agents, Tasks
+from schemas import (
+    PromptResponse,
+    StartTaskResponse,
+    TaskResponse,
+)
+from security import generate_signature, verify_signature
+
+load_dotenv()
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+client = AsyncGroq(api_key=GROQ_API_KEY)
 
 class PromptServices():
     def __init__(self, session: Annotated[AsyncSession, Depends(get_session)]):
@@ -282,12 +292,146 @@ class ResponseService():
         prompt = result.scalar_one_or_none()
         return prompt.prompt
     
-    async def get_agent_response(
+    async def _get_agent_from_db(
         self,
+        agent_id: UUID,
+    ):
+        query = (
+            select(Agents)
+            .where(Agents.id == agent_id)
+        )
+        result = await self.session.execute(query)
+        agent = result.scalar_one_or_none()
+        if agent is None:
+            return None
+        return agent
+    
+    async def _store_task_info(
+        self,
+        task_id: UUID,
+        agent_id: UUID,
+        status: str,
+        result: str = None,
+    ):
+        task = await self.session.scalar(select(Tasks).where(Tasks.id == task_id))
+        if task:
+            task.status = status
+            task.result = result
+        else:
+            task = Tasks(
+                id=task_id,
+                agent_id=agent_id,
+                status=status,
+                result=result,
+            )
+            self.session.add(task)
+        await self.session.commit()
+    
+    async def _call_llm_worker(
+        self,
+        task_id: UUID,
         agent_id: UUID,
         user_input: str,
     ):
-        prompt_id = select(Agents.prompt_id).where(Agents.id == agent_id)
-        prompt = await self._get_latest_prompt_text(prompt_id)
-
+        agent = await self._get_agent_from_db(agent_id=agent_id)
         
+        prompt_id = agent.prompt_id
+        prompt = await self._get_latest_prompt_text(prompt_id)
+                
+        response = await client.chat.completions.create(
+            messages=[
+                {
+                    "role": "system",
+                    "content": prompt,
+                },
+                {
+                    "role": "user",
+                    "content": user_input,
+                }
+            ],
+            model=agent.model_name,
+            temperature=agent.temperature,
+            max_tokens=agent.max_output_tokens
+        )
+        result = response.choices[0].message.content
+        
+        await self._store_task_info(
+            agent_id=agent_id,
+            task_id=task_id,
+            status="success",
+            result=result,
+        )
+        
+        payload = {
+            "task_id": str(task_id),
+            "system_prompt": prompt,
+            "user_input": user_input,
+            "result": result,
+        }
+        async with httpx.AsyncClient() as webhook_client:
+            timestamp = datetime.now()
+            signature = generate_signature(
+                payload=json.dumps(payload),
+                timestamp=timestamp,
+            )
+            headers = {
+                "Content-Type": "application/json",
+                "X-Signature": signature,
+                "X-Timestamp": str(timestamp),
+            }
+            await webhook_client.post(
+                url="https://webhook.site/e03c6176-ed2e-495a-8564-c3d67d494a43",
+                content=json.dumps(payload),
+                headers=headers,
+            )
+            
+    async def start_llm_task(
+        self,
+        agent_id: UUID,
+        task_id: UUID,
+        user_input: str,
+    ):
+        await self._store_task_info(
+            agent_id=agent_id,
+            task_id=task_id,
+            status="processing",
+        )
+        
+        asyncio.create_task(
+            self._call_llm_worker(
+                task_id=task_id,
+                agent_id=agent_id,
+                user_input=user_input,
+            )
+        )
+
+        return StartTaskResponse(
+            task_id=task_id,
+            status="processing"
+        )
+    
+    async def get_task_info(
+        self,
+        task_id: UUID,
+    ):
+        query = (
+            select(Tasks)
+            .where(Tasks.id == task_id)
+        )
+        result = await self.session.execute(query)
+        task = result.scalar_one_or_none()
+        
+        if task is None:
+            return None
+        
+        return TaskResponse(
+            id=task.id,
+            agent_id=task.agent_id,
+            status=task.status,
+            result=task.result,
+        )
+        
+"""
+todo webhook endpoint
+        
+"""
