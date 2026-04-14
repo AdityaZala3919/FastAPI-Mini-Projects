@@ -1,0 +1,84 @@
+2026-04-14 16:00:58 - app - INFO - ============================================================
+2026-04-14 16:00:58 - app - INFO - Application startup initiated
+2026-04-14 16:00:58 - app - INFO - Database initialization completed successfully
+2026-04-14 16:00:58 - app - INFO - Application ready to accept requests
+2026-04-14 16:00:58 - app - INFO - ============================================================
+2026-04-14 16:01:55 - app - INFO - ============================================================
+2026-04-14 16:01:55 - app - INFO - Application shutdown initiated
+2026-04-14 16:01:55 - app - INFO - ============================================================
+2026-04-14 16:01:56 - app - INFO - ============================================================
+2026-04-14 16:01:56 - app - INFO - Application startup initiated
+2026-04-14 16:01:56 - app - INFO - Database initialization completed successfully
+2026-04-14 16:01:56 - app - INFO - Application ready to accept requests
+2026-04-14 16:01:56 - app - INFO - ============================================================
+2026-04-14 16:02:25 - app - INFO - ============================================================
+2026-04-14 16:02:25 - app - INFO - Application shutdown initiated
+2026-04-14 16:02:25 - app - INFO - ============================================================
+2026-04-14 16:02:27 - app - INFO - ============================================================
+2026-04-14 16:02:27 - app - INFO - Application startup initiated
+2026-04-14 16:02:27 - app - INFO - Database initialization completed successfully
+2026-04-14 16:02:27 - app - INFO - Application ready to accept requests
+2026-04-14 16:02:27 - app - INFO - ============================================================
+2026-04-14 16:02:44 - app - INFO - ============================================================
+2026-04-14 16:02:44 - app - INFO - Application shutdown initiated
+2026-04-14 16:02:44 - app - INFO - ============================================================
+2026-04-14 16:02:45 - app - INFO - ============================================================
+2026-04-14 16:02:45 - app - INFO - Application startup initiated
+2026-04-14 16:02:45 - app - INFO - Database initialization completed successfully
+2026-04-14 16:02:45 - app - INFO - Application ready to accept requests
+2026-04-14 16:02:45 - app - INFO - ============================================================
+2026-04-14 16:02:56 - app - INFO - ============================================================
+2026-04-14 16:02:56 - app - INFO - Application shutdown initiated
+2026-04-14 16:02:56 - app - INFO - ============================================================
+2026-04-14 16:02:57 - app - INFO - ============================================================
+2026-04-14 16:02:57 - app - INFO - Application startup initiated
+2026-04-14 16:02:57 - app - INFO - Database initialization completed successfully
+2026-04-14 16:02:57 - app - INFO - Application ready to accept requests
+2026-04-14 16:02:57 - app - INFO - ============================================================
+2026-04-14 16:06:19 - app - INFO - ============================================================
+2026-04-14 16:06:19 - app - INFO - Application shutdown initiated
+2026-04-14 16:06:19 - app - INFO - ============================================================
+2026-04-14 16:06:20 - app - INFO - ============================================================
+2026-04-14 16:06:20 - app - INFO - Application startup initiated
+2026-04-14 16:06:20 - app - INFO - Database initialization completed successfully
+2026-04-14 16:06:20 - app - INFO - Application ready to accept requests
+2026-04-14 16:06:20 - app - INFO - ============================================================
+2026-04-14 16:06:57 - app - INFO - ============================================================
+2026-04-14 16:06:57 - app - INFO - Application shutdown initiated
+2026-04-14 16:06:57 - app - INFO - ============================================================
+2026-04-14 16:06:58 - app - INFO - ============================================================
+2026-04-14 16:06:58 - app - INFO - Application startup initiated
+2026-04-14 16:06:58 - app - INFO - Database initialization completed successfully
+2026-04-14 16:06:58 - app - INFO - Application ready to accept requests
+2026-04-14 16:06:58 - app - INFO - ============================================================
+2026-04-14 16:07:17 - app - INFO - ============================================================
+2026-04-14 16:07:17 - app - INFO - Application shutdown initiated
+2026-04-14 16:07:17 - app - INFO - ============================================================
+2026-04-14 16:07:18 - app - INFO - ============================================================
+2026-04-14 16:07:18 - app - INFO - Application startup initiated
+2026-04-14 16:07:18 - app - INFO - Database initialization completed successfully
+2026-04-14 16:07:18 - app - INFO - Application ready to accept requests
+2026-04-14 16:07:18 - app - INFO - ============================================================
+2026-04-14 16:07:35 - app - INFO - ============================================================
+2026-04-14 16:07:35 - app - INFO - Application shutdown initiated
+2026-04-14 16:07:35 - app - INFO - ============================================================
+2026-04-14 16:07:36 - app - INFO - ============================================================
+2026-04-14 16:07:36 - app - INFO - Application startup initiated
+2026-04-14 16:07:36 - app - INFO - Database initialization completed successfully
+2026-04-14 16:07:36 - app - INFO - Application ready to accept requests
+2026-04-14 16:07:36 - app - INFO - ============================================================
+2026-04-14 16:07:50 - app - INFO - ============================================================
+2026-04-14 16:07:50 - app - INFO - Application shutdown initiated
+2026-04-14 16:07:50 - app - INFO - ============================================================
+2026-04-14 16:07:51 - app - INFO - ============================================================
+2026-04-14 16:07:51 - app - INFO - Application startup initiated
+2026-04-14 16:07:51 - app - INFO - Database initialization completed successfully
+2026-04-14 16:07:51 - app - INFO - Application ready to accept requests
+2026-04-14 16:07:51 - app - INFO - ============================================================
+2026-04-14 16:09:24 - app - DEBUG - GET /prompts - Fetching prompts with pagination: page=1, size=50
+2026-04-14 16:09:24 - app - DEBUG - Retrieved 4 prompts from database
+2026-04-14 16:09:35 - app - DEBUG - GET /prompts - Fetching prompts with pagination: page=1, size=50
+2026-04-14 16:09:35 - app - DEBUG - Retrieved 4 prompts from database
+2026-04-14 16:10:39 - app - INFO - ============================================================
+2026-04-14 16:10:39 - app - INFO - Application shutdown initiated
+2026-04-14 16:10:39 - app - INFO - ============================================================
