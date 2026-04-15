@@ -76,3 +76,17 @@ class TaskResponse(BaseModel):
     agent_id: UUID
     status: str
     result: Optional[str] = None
+
+class UserRegisterRequest(BaseModel):
+    username: str
+    password: str
+
+class UserLoginRequest(BaseModel):
+    user_id: Optional[str] = None
+    username: Optional[str] = None
+    password: Optional[str] = None
+
+class UserResponse(BaseModel):
+    user_id: UUID
+    username: str
+    password: str

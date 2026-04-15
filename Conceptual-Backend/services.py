@@ -17,13 +17,14 @@ from fastapi.responses import RedirectResponse
 from sqlalchemy import select, func
 
 from database import get_session
-from models import Prompts, Agents, Tasks
+from models import Prompts, Agents, Tasks, User
 from schemas import (
     PromptResponse,
     StartTaskResponse,
     TaskResponse,
+    UserResponse,
 )
-from security import generate_signature, verify_signature
+from security import generate_signature, verify_signature, hash_password
 
 load_dotenv()
 
@@ -189,6 +190,7 @@ class PromptServices():
             await self.session.rollback()
             logger.error(f"Error deleting prompt {unique_id}: {str(e)}", exc_info=True)
             raise
+
 
 class AgentServices():
     def __init__(self, session: Annotated[AsyncSession, Depends(get_session)]):
@@ -363,6 +365,7 @@ class AgentServices():
             logger.error(f"Error deleting agent {agent_id}: {str(e)}", exc_info=True)
             raise
     
+
 class ResponseService():
     def __init__(self, session: Annotated[AsyncSession, Depends(get_session)]):
         self.session = session
@@ -599,7 +602,70 @@ class ResponseService():
         except Exception as e:
             logger.error(f"Error retrieving task info: task_id={task_id}, error={str(e)}", exc_info=True)
             raise
+   
+
+class UserService():
+    def __init__(self, session: Annotated[AsyncSession, Depends(get_session)]):
+        self.session = session
         
+    async def create_user(
+        self,
+        username: str,
+        password: str,
+    ):
+        try:
+            logger.debug(f"Creating new user: username={username}")
+            user_obj = User(
+                id=uuid4(),
+                username=username,
+                hashed_password=hash_password(password)
+            )
+            self.session.add(user_obj)
+            await self.session.commit()
+            await self.session.refresh(user_obj)
+            logger.info(f"User created successfully: user_id={user_obj.id}, username={username}")
+            return UserResponse(
+                user_id=user_obj.id,
+                username=user_obj.username,
+                password=password,
+            )
+        except Exception as e:
+            await self.session.rollback()
+            logger.error(f"Error creating user: username={username}, error={str(e)}", exc_info=True)
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+    
+    async def get_user(
+        self,
+        username: str = None,
+        user_id: str = None,
+    ):
+        try:
+            logger.debug(f"Fetching user: username={username}, user_id={user_id}")
+            query = select(User)
+            if user_id:
+                query = query.where(User.id == user_id)
+                logger.debug(f"Querying user by user_id={user_id}")
+            elif username:
+                query = query.where(User.username == username)
+                logger.debug(f"Querying user by username={username}")
+            result = await self.session.execute(query)
+            user = result.scalar_one_or_none()
+            if not user: 
+                logger.warning(f"User not found: username={username}, user_id={user_id}")
+                raise HTTPException(status_code=404, detail="User not found.")
+            logger.info(f"User retrieved successfully: user_id={user.id}, username={user.username}")
+            return UserResponse(
+                user_id=user.id,
+                username=user.username,
+                password=user.hashed_password,
+            )
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error(f"Error fetching user: username={username}, user_id={user_id}, error={str(e)}", exc_info=True)
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+        
+    
 """
 todo webhook endpoint
         

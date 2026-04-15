@@ -44,3 +44,11 @@ class Tasks(Base):
     agent_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True))
     status: Mapped[str] = mapped_column(String, default="pending")
     result: Mapped[dict] = mapped_column(JSON, nullable=True)    
+
+class User(Base):
+    __tablename__ = "user"
+    
+    id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), primary_key=True)
+    username: Mapped[str] = mapped_column(String, index=True, nullable=False, unique=True)
+    hashed_password: Mapped[str] = mapped_column(String, nullable=False)
+    

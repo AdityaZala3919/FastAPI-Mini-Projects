@@ -12,7 +12,7 @@ import logging
 import logging.handlers
 import os
 
-from models import Prompts, Agents
+from models import Prompts, Agents, User
 from schemas import (
     BaseResponse,
     PromptResponse,
@@ -27,9 +27,22 @@ from schemas import (
     StartTaskRequest,
     StartTaskResponse,
     TaskResponse,
+    UserRegisterRequest,
+    UserLoginRequest,
+    UserResponse,
 )
 from database import get_session, init_db
-from services import PromptServices, AgentServices, ResponseService
+from services import (
+    PromptServices,
+    AgentServices,
+    ResponseService,
+    UserService,
+)
+from security import (
+    verify_password,
+    create_access_token,
+    get_current_user,
+)
 
 # Tags metadata for Swagger UI organization
 tags_metadata = [
@@ -408,6 +421,7 @@ async def start_agent_task(
     service: Annotated[ResponseService, Depends()],
     agent_id: Annotated[UUID, Path(description="The UUID of the agent to execute")],
     request: Annotated[StartTaskRequest, Body(description="User input to process")],
+    current_user: Annotated[User, Depends(get_current_user)]
 ) -> BaseResponse[StartTaskResponse]:
     """Queue a new LLM task for an agent.
     
@@ -437,6 +451,7 @@ async def start_agent_task(
 async def get_result(
     service: Annotated[ResponseService, Depends()],
     task_id: Annotated[UUID, Path(description="The UUID of the task to check")],
+    current_user: Annotated[User, Depends(get_current_user)],
 ) -> BaseResponse[TaskResponse]:
     """Get task result and status.
     
@@ -458,3 +473,48 @@ async def get_result(
     except Exception as e:
         logger.error(f"Error fetching task result {task_id}: {str(e)}", exc_info=True)
         raise
+    
+# -------------------------------------------------------------------------
+
+@app.post("/register", tags=["User"])
+async def register_user(
+    service: Annotated[UserService, Depends()],
+    request: Annotated[UserRegisterRequest, Body()],
+) -> BaseResponse[UserResponse]:
+    try:
+        logger.info(f"Registration request received: username={request.username}")
+        result = await service.create_user(**request.model_dump())
+        logger.info(f"User registration completed successfully: username={request.username}")
+        return BaseResponse(data=result)
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error during user registration: username={request.username}, error={str(e)}", exc_info=True)
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Registration failed")
+
+@app.post("/login", tags=["User"])
+async def login_user(
+    service: Annotated[UserService, Depends()],
+    request: Annotated[UserLoginRequest, Body()],
+):
+    try:
+        logger.info(f"Login request received: username={request.username}")
+        user = await service.get_user(username=request.username)
+        
+        if not user or not verify_password(request.password, user.password):
+            logger.warning(f"Login attempt failed: invalid credentials for username={request.username}")
+            raise HTTPException(status_code=401, detail="Invalid credentials")
+        
+        logger.debug(f"User credentials verified: username={request.username}, user_id={user.user_id}")
+        token = await create_access_token(user_id=str(user.user_id))
+        
+        logger.info(f"User logged in successfully: username={request.username}, user_id={user.user_id}")
+        return {
+            "access_token": token,
+            "token_type": "bearer"
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error during user login: username={request.username}, error={str(e)}", exc_info=True)
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Login failed")
