@@ -357,3 +357,310 @@
 2026-04-15 15:12:10 - app - INFO - Database initialization completed successfully
 2026-04-15 15:12:10 - app - INFO - Application ready to accept requests
 2026-04-15 15:12:10 - app - INFO - ============================================================
+2026-04-15 15:15:30 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=5afaac4c-5928-449d-97b3-88f28756f185
+2026-04-15 15:15:30 - app - INFO - LLM task queued successfully: task_id=5afaac4c-5928-449d-97b3-88f28756f185, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 15:15:36 - app - DEBUG - GET /agent/result/5afaac4c-5928-449d-97b3-88f28756f185 - Retrieving task information
+2026-04-15 15:15:36 - app - DEBUG - Task retrieved: 5afaac4c-5928-449d-97b3-88f28756f185, status=success
+2026-04-15 15:15:37 - app - DEBUG - GET /agent/result/5afaac4c-5928-449d-97b3-88f28756f185 - Retrieving task information
+2026-04-15 15:15:37 - app - DEBUG - Task retrieved: 5afaac4c-5928-449d-97b3-88f28756f185, status=success
+2026-04-15 15:20:02 - app - INFO - ============================================================
+2026-04-15 15:20:02 - app - INFO - Application shutdown initiated
+2026-04-15 15:20:02 - app - INFO - ============================================================
+2026-04-15 15:30:55 - app - INFO - ============================================================
+2026-04-15 15:30:55 - app - INFO - Application startup initiated
+2026-04-15 15:30:55 - app - INFO - Database initialization completed successfully
+2026-04-15 15:30:55 - app - INFO - Application ready to accept requests
+2026-04-15 15:30:55 - app - INFO - ============================================================
+2026-04-15 15:41:36 - app - DEBUG - GET /agents - Fetching agents with pagination: page=1, size=50
+2026-04-15 15:41:36 - app - DEBUG - Retrieved 4 agents, total: 4
+2026-04-15 15:41:48 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=1af8e30c-1165-492e-a145-23f6f154073f
+2026-04-15 15:41:48 - app - INFO - LLM task queued successfully: task_id=1af8e30c-1165-492e-a145-23f6f154073f, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:18:41 - app - INFO - ============================================================
+2026-04-15 16:18:41 - app - INFO - Application shutdown initiated
+2026-04-15 16:18:41 - app - INFO - ============================================================
+2026-04-15 16:19:08 - app - INFO - ============================================================
+2026-04-15 16:19:08 - app - INFO - Application startup initiated
+2026-04-15 16:19:08 - app - INFO - Database initialization completed successfully
+2026-04-15 16:19:08 - app - INFO - Application ready to accept requests
+2026-04-15 16:19:08 - app - INFO - ============================================================
+2026-04-15 16:21:31 - app - INFO - ============================================================
+2026-04-15 16:21:31 - app - INFO - Application shutdown initiated
+2026-04-15 16:21:31 - app - INFO - ============================================================
+2026-04-15 16:21:32 - app - INFO - ============================================================
+2026-04-15 16:21:32 - app - INFO - Application startup initiated
+2026-04-15 16:21:32 - app - INFO - Database initialization completed successfully
+2026-04-15 16:21:32 - app - INFO - Application ready to accept requests
+2026-04-15 16:21:32 - app - INFO - ============================================================
+2026-04-15 16:21:59 - app - DEBUG - GET /agents - Fetching agents with pagination: page=1, size=50
+2026-04-15 16:21:59 - app - DEBUG - Retrieved 4 agents, total: 4
+2026-04-15 16:22:22 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=aca7927c-2d31-43db-8b1f-2ebbf7126c76
+2026-04-15 16:22:22 - app - INFO - LLM task queued successfully: task_id=aca7927c-2d31-43db-8b1f-2ebbf7126c76, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:22:24 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:22:24 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:22:30 - app - DEBUG - GET /agent/result/aca7927c-2d31-43db-8b1f-2ebbf7126c76 - Retrieving task information
+2026-04-15 16:22:30 - app - DEBUG - Task retrieved: aca7927c-2d31-43db-8b1f-2ebbf7126c76, status=success
+2026-04-15 16:22:46 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:22:46 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:23:34 - app - INFO - ============================================================
+2026-04-15 16:23:34 - app - INFO - Application shutdown initiated
+2026-04-15 16:23:34 - app - INFO - ============================================================
+2026-04-15 16:23:36 - app - INFO - ============================================================
+2026-04-15 16:23:36 - app - INFO - Application startup initiated
+2026-04-15 16:23:36 - app - INFO - Database initialization completed successfully
+2026-04-15 16:23:36 - app - INFO - Application ready to accept requests
+2026-04-15 16:23:36 - app - INFO - ============================================================
+2026-04-15 16:23:43 - app - INFO - ============================================================
+2026-04-15 16:23:43 - app - INFO - Application shutdown initiated
+2026-04-15 16:23:43 - app - INFO - ============================================================
+2026-04-15 16:23:44 - app - INFO - ============================================================
+2026-04-15 16:23:44 - app - INFO - Application startup initiated
+2026-04-15 16:23:44 - app - INFO - Database initialization completed successfully
+2026-04-15 16:23:44 - app - INFO - Application ready to accept requests
+2026-04-15 16:23:44 - app - INFO - ============================================================
+2026-04-15 16:24:47 - app - INFO - ============================================================
+2026-04-15 16:24:47 - app - INFO - Application shutdown initiated
+2026-04-15 16:24:47 - app - INFO - ============================================================
+2026-04-15 16:24:49 - app - INFO - ============================================================
+2026-04-15 16:24:49 - app - INFO - Application startup initiated
+2026-04-15 16:24:49 - app - INFO - Database initialization completed successfully
+2026-04-15 16:24:49 - app - INFO - Application ready to accept requests
+2026-04-15 16:24:49 - app - INFO - ============================================================
+2026-04-15 16:24:57 - app - INFO - ============================================================
+2026-04-15 16:24:57 - app - INFO - Application shutdown initiated
+2026-04-15 16:24:57 - app - INFO - ============================================================
+2026-04-15 16:24:58 - app - INFO - ============================================================
+2026-04-15 16:24:58 - app - INFO - Application startup initiated
+2026-04-15 16:24:58 - app - INFO - Database initialization completed successfully
+2026-04-15 16:24:58 - app - INFO - Application ready to accept requests
+2026-04-15 16:24:58 - app - INFO - ============================================================
+2026-04-15 16:25:20 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:25:20 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:25:20 - app - DEBUG - Webhook timestamp header: False
+2026-04-15 16:25:26 - app - DEBUG - GET /agents - Fetching agents with pagination: page=1, size=50
+2026-04-15 16:25:26 - app - DEBUG - Retrieved 4 agents, total: 4
+2026-04-15 16:25:46 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=ca5a92e4-fc58-47c8-a015-41dbf4345275
+2026-04-15 16:25:46 - app - INFO - LLM task queued successfully: task_id=ca5a92e4-fc58-47c8-a015-41dbf4345275, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:25:46 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:25:46 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:25:46 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:25:53 - app - DEBUG - GET /agent/result/ca5a92e4-fc58-47c8-a015-41dbf4345275 - Retrieving task information
+2026-04-15 16:25:53 - app - DEBUG - Task retrieved: ca5a92e4-fc58-47c8-a015-41dbf4345275, status=success
+2026-04-15 16:26:24 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:26:24 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:26:24 - app - DEBUG - Webhook timestamp header: False
+2026-04-15 16:27:09 - app - INFO - ============================================================
+2026-04-15 16:27:09 - app - INFO - Application shutdown initiated
+2026-04-15 16:27:09 - app - INFO - ============================================================
+2026-04-15 16:27:10 - app - INFO - ============================================================
+2026-04-15 16:27:10 - app - INFO - Application startup initiated
+2026-04-15 16:27:10 - app - INFO - Database initialization completed successfully
+2026-04-15 16:27:10 - app - INFO - Application ready to accept requests
+2026-04-15 16:27:10 - app - INFO - ============================================================
+2026-04-15 16:27:13 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:27:13 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:27:13 - app - DEBUG - Webhook timestamp header: False
+2026-04-15 16:29:18 - app - INFO - ============================================================
+2026-04-15 16:29:18 - app - INFO - Application shutdown initiated
+2026-04-15 16:29:18 - app - INFO - ============================================================
+2026-04-15 16:29:19 - app - INFO - ============================================================
+2026-04-15 16:29:19 - app - INFO - Application startup initiated
+2026-04-15 16:29:19 - app - INFO - Database initialization completed successfully
+2026-04-15 16:29:19 - app - INFO - Application ready to accept requests
+2026-04-15 16:29:19 - app - INFO - ============================================================
+2026-04-15 16:29:20 - app - INFO - ============================================================
+2026-04-15 16:29:20 - app - INFO - Application startup initiated
+2026-04-15 16:29:20 - app - INFO - Database initialization completed successfully
+2026-04-15 16:29:20 - app - INFO - Application ready to accept requests
+2026-04-15 16:29:20 - app - INFO - ============================================================
+2026-04-15 16:30:51 - app - INFO - ============================================================
+2026-04-15 16:30:51 - app - INFO - Application shutdown initiated
+2026-04-15 16:30:51 - app - INFO - ============================================================
+2026-04-15 16:30:52 - app - INFO - ============================================================
+2026-04-15 16:30:52 - app - INFO - Application startup initiated
+2026-04-15 16:30:52 - app - INFO - Database initialization completed successfully
+2026-04-15 16:30:52 - app - INFO - Application ready to accept requests
+2026-04-15 16:30:52 - app - INFO - ============================================================
+2026-04-15 16:30:54 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:30:54 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:30:54 - app - DEBUG - Webhook timestamp header: False
+2026-04-15 16:31:02 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=19b9efdd-c5e6-4932-9917-f0a00f393c04
+2026-04-15 16:31:02 - app - INFO - LLM task queued successfully: task_id=19b9efdd-c5e6-4932-9917-f0a00f393c04, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:31:03 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:31:03 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:31:03 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:31:03 - app - INFO - Webhook endpoint response sent successfully
+2026-04-15 16:31:09 - app - DEBUG - GET /agent/result/19b9efdd-c5e6-4932-9917-f0a00f393c04 - Retrieving task information
+2026-04-15 16:31:09 - app - DEBUG - Task retrieved: 19b9efdd-c5e6-4932-9917-f0a00f393c04, status=success
+2026-04-15 16:31:22 - app - INFO - ============================================================
+2026-04-15 16:31:22 - app - INFO - Application shutdown initiated
+2026-04-15 16:31:22 - app - INFO - ============================================================
+2026-04-15 16:31:23 - app - INFO - ============================================================
+2026-04-15 16:31:23 - app - INFO - Application startup initiated
+2026-04-15 16:31:23 - app - INFO - Database initialization completed successfully
+2026-04-15 16:31:23 - app - INFO - Application ready to accept requests
+2026-04-15 16:31:23 - app - INFO - ============================================================
+2026-04-15 16:31:37 - app - INFO - ============================================================
+2026-04-15 16:31:37 - app - INFO - Application shutdown initiated
+2026-04-15 16:31:37 - app - INFO - ============================================================
+2026-04-15 16:31:38 - app - INFO - ============================================================
+2026-04-15 16:31:38 - app - INFO - Application startup initiated
+2026-04-15 16:31:38 - app - INFO - Database initialization completed successfully
+2026-04-15 16:31:38 - app - INFO - Application ready to accept requests
+2026-04-15 16:31:38 - app - INFO - ============================================================
+2026-04-15 16:31:46 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=f40811ab-c207-4699-9789-c8e5467d07ff
+2026-04-15 16:31:46 - app - INFO - LLM task queued successfully: task_id=f40811ab-c207-4699-9789-c8e5467d07ff, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:31:50 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:31:50 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:31:50 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:31:50 - app - INFO - Webhook endpoint response sent successfully
+2026-04-15 16:31:53 - app - DEBUG - GET /agent/result/f40811ab-c207-4699-9789-c8e5467d07ff - Retrieving task information
+2026-04-15 16:31:53 - app - DEBUG - Task retrieved: f40811ab-c207-4699-9789-c8e5467d07ff, status=success
+2026-04-15 16:32:09 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:32:09 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:32:09 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:32:23 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:32:23 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:32:23 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:33:01 - app - INFO - ============================================================
+2026-04-15 16:33:01 - app - INFO - Application shutdown initiated
+2026-04-15 16:33:01 - app - INFO - ============================================================
+2026-04-15 16:33:02 - app - INFO - ============================================================
+2026-04-15 16:33:02 - app - INFO - Application startup initiated
+2026-04-15 16:33:02 - app - INFO - Database initialization completed successfully
+2026-04-15 16:33:02 - app - INFO - Application ready to accept requests
+2026-04-15 16:33:02 - app - INFO - ============================================================
+2026-04-15 16:33:07 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=5057a881-3d24-4028-be14-a6d161dfbf6c
+2026-04-15 16:33:07 - app - INFO - LLM task queued successfully: task_id=5057a881-3d24-4028-be14-a6d161dfbf6c, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:33:08 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:33:08 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:33:08 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:33:08 - app - INFO - Webhook endpoint response sent successfully
+2026-04-15 16:33:13 - app - DEBUG - GET /agent/result/5057a881-3d24-4028-be14-a6d161dfbf6c - Retrieving task information
+2026-04-15 16:33:13 - app - DEBUG - Task retrieved: 5057a881-3d24-4028-be14-a6d161dfbf6c, status=success
+2026-04-15 16:33:21 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:33:21 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:33:21 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:33:42 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:33:42 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:33:42 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:34:33 - app - INFO - ============================================================
+2026-04-15 16:34:33 - app - INFO - Application shutdown initiated
+2026-04-15 16:34:33 - app - INFO - ============================================================
+2026-04-15 16:34:34 - app - INFO - ============================================================
+2026-04-15 16:34:34 - app - INFO - Application startup initiated
+2026-04-15 16:34:34 - app - INFO - Database initialization completed successfully
+2026-04-15 16:34:34 - app - INFO - Application ready to accept requests
+2026-04-15 16:34:34 - app - INFO - ============================================================
+2026-04-15 16:35:15 - app - INFO - ============================================================
+2026-04-15 16:35:15 - app - INFO - Application shutdown initiated
+2026-04-15 16:35:15 - app - INFO - ============================================================
+2026-04-15 16:35:16 - app - INFO - ============================================================
+2026-04-15 16:35:16 - app - INFO - Application startup initiated
+2026-04-15 16:35:17 - app - INFO - Database initialization completed successfully
+2026-04-15 16:35:17 - app - INFO - Application ready to accept requests
+2026-04-15 16:35:17 - app - INFO - ============================================================
+2026-04-15 16:36:24 - app - DEBUG - GET /agents - Fetching agents with pagination: page=1, size=50
+2026-04-15 16:36:24 - app - DEBUG - Retrieved 4 agents, total: 4
+2026-04-15 16:37:02 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=1062539c-e3c4-48f2-9921-e11c64550e67
+2026-04-15 16:37:02 - app - INFO - LLM task queued successfully: task_id=1062539c-e3c4-48f2-9921-e11c64550e67, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:37:03 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:37:03 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:37:03 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:37:03 - app - INFO - Webhook endpoint response sent successfully
+2026-04-15 16:37:52 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:37:52 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:37:52 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:38:01 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:38:01 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:38:01 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:38:38 - app - DEBUG - GET /agent/result/1062539c-e3c4-48f2-9921-e11c64550e67 - Retrieving task information
+2026-04-15 16:38:38 - app - DEBUG - Task retrieved: 1062539c-e3c4-48f2-9921-e11c64550e67, status=success
+2026-04-15 16:44:08 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:44:08 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:44:08 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:46:15 - app - INFO - ============================================================
+2026-04-15 16:46:15 - app - INFO - Application shutdown initiated
+2026-04-15 16:46:15 - app - INFO - ============================================================
+2026-04-15 16:46:16 - app - INFO - ============================================================
+2026-04-15 16:46:16 - app - INFO - Application startup initiated
+2026-04-15 16:46:16 - app - INFO - Database initialization completed successfully
+2026-04-15 16:46:16 - app - INFO - Application ready to accept requests
+2026-04-15 16:46:16 - app - INFO - ============================================================
+2026-04-15 16:46:25 - app - INFO - ============================================================
+2026-04-15 16:46:25 - app - INFO - Application shutdown initiated
+2026-04-15 16:46:25 - app - INFO - ============================================================
+2026-04-15 16:46:26 - app - INFO - ============================================================
+2026-04-15 16:46:26 - app - INFO - Application startup initiated
+2026-04-15 16:46:26 - app - INFO - Database initialization completed successfully
+2026-04-15 16:46:26 - app - INFO - Application ready to accept requests
+2026-04-15 16:46:26 - app - INFO - ============================================================
+2026-04-15 16:47:46 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:47:46 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:47:46 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:47:46 - app - DEBUG - Request content-type: Not set
+2026-04-15 16:47:46 - app - DEBUG - Request headers: {'host': 'localhost:8000', 'connection': 'keep-alive', 'content-length': '0', 'sec-ch-ua-platform': '"Linux"', 'x-signature': '3527b8cc9ca96c087ee4b356e04104e24d29a37360a8e1435b702c6ae3a8ef70', 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', 'accept': 'application/json', 'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"', 'x-timestamp': '2026-04-15T16:37:03.232673', 'sec-ch-ua-mobile': '?0', 'origin': 'http://localhost:8000', 'sec-fetch-site': 'same-origin', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:8000/docs', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8', 'cookie': 'ajs_anonymous_id=99c15538-b4ec-4207-8814-0b859935ee3d; pga4_session=28cdc796-30eb-46ba-b896-7453b2463f37!N0zP3PUVHYpUKRboa9mCds+5At0d5zJQn76Tw7+AQiQ='}
+2026-04-15 16:47:46 - app - DEBUG - Received raw body size: 0 bytes
+2026-04-15 16:47:46 - app - DEBUG - Received raw body (first 500 chars): b''
+2026-04-15 16:47:53 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=0ff965e8-e078-4d68-a7d6-b8e8e563f2cb
+2026-04-15 16:47:53 - app - INFO - LLM task queued successfully: task_id=0ff965e8-e078-4d68-a7d6-b8e8e563f2cb, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:47:53 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:47:53 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:47:53 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:47:53 - app - DEBUG - Request content-type: Not set
+2026-04-15 16:47:53 - app - DEBUG - Request headers: {'host': 'localhost:8000', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, zstd', 'connection': 'keep-alive', 'user-agent': 'python-httpx/0.27.2', 'x-signature': 'efb8668684c4f4e8f66c3c0da2f3d3de48acf0210e548c9f2eddbb2a555b8c8c', 'x-timestamp': '2026-04-15T16:47:53.919691', 'content-length': '2371'}
+2026-04-15 16:47:53 - app - DEBUG - Received raw body size: 2371 bytes
+2026-04-15 16:47:53 - app - DEBUG - Received raw body (first 500 chars): b'{"task_id": "0ff965e8-e078-4d68-a7d6-b8e8e563f2cb", "system_prompt": "You are a senior-level Python engineer with 15+ years of experience in building scalable systems, APIs, and automation tools.\\n\\nYou write clean, efficient, and production-ready code. You follow best practices, design patterns, and performance optimization techniques.\\n\\nYour behavior guidelines:\\n\\n* Always write readable, well-structured, and documented code.\\n* Prefer simplicity and maintainability over cleverness.\\n* Expla'
+2026-04-15 16:47:53 - app - INFO - Webhook endpoint response sent successfully
+2026-04-15 16:48:02 - app - DEBUG - GET /agent/result/0ff965e8-e078-4d68-a7d6-b8e8e563f2cb - Retrieving task information
+2026-04-15 16:48:02 - app - DEBUG - Task retrieved: 0ff965e8-e078-4d68-a7d6-b8e8e563f2cb, status=success
+2026-04-15 16:48:36 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:48:36 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:48:36 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:48:36 - app - DEBUG - Request content-type: Not set
+2026-04-15 16:48:36 - app - DEBUG - Request headers: {'host': 'localhost:8000', 'connection': 'keep-alive', 'content-length': '0', 'sec-ch-ua-platform': '"Linux"', 'x-signature': 'efb8668684c4f4e8f66c3c0da2f3d3de48acf0210e548c9f2eddbb2a555b8c8c', 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', 'accept': 'application/json', 'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"', 'x-timestamp': '2026-04-15T16:47:53.919691', 'sec-ch-ua-mobile': '?0', 'origin': 'http://localhost:8000', 'sec-fetch-site': 'same-origin', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:8000/docs', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8', 'cookie': 'ajs_anonymous_id=99c15538-b4ec-4207-8814-0b859935ee3d; pga4_session=28cdc796-30eb-46ba-b896-7453b2463f37!N0zP3PUVHYpUKRboa9mCds+5At0d5zJQn76Tw7+AQiQ='}
+2026-04-15 16:48:36 - app - DEBUG - Received raw body size: 0 bytes
+2026-04-15 16:48:36 - app - DEBUG - Received raw body (first 500 chars): b''
+2026-04-15 16:51:20 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:51:20 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:51:20 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:51:20 - app - DEBUG - Request content-type: Not set
+2026-04-15 16:51:20 - app - DEBUG - Request headers: {'host': 'localhost:8000', 'connection': 'keep-alive', 'content-length': '0', 'sec-ch-ua-platform': '"Linux"', 'x-signature': 'efb8668684c4f4e8f66c3c0da2f3d3de48acf0210e548c9f2eddbb2a555b8c8c', 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', 'accept': 'application/json', 'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"', 'x-timestamp': '2026-04-15T16:47:53.919691', 'sec-ch-ua-mobile': '?0', 'origin': 'http://localhost:8000', 'sec-fetch-site': 'same-origin', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:8000/docs', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8', 'cookie': 'ajs_anonymous_id=99c15538-b4ec-4207-8814-0b859935ee3d; pga4_session=28cdc796-30eb-46ba-b896-7453b2463f37!N0zP3PUVHYpUKRboa9mCds+5At0d5zJQn76Tw7+AQiQ='}
+2026-04-15 16:51:20 - app - DEBUG - Received raw body size: 0 bytes
+2026-04-15 16:51:20 - app - DEBUG - Received raw body (first 500 chars): b''
+2026-04-15 16:55:28 - app - INFO - ============================================================
+2026-04-15 16:55:28 - app - INFO - Application shutdown initiated
+2026-04-15 16:55:28 - app - INFO - ============================================================
+2026-04-15 16:55:30 - app - INFO - ============================================================
+2026-04-15 16:55:30 - app - INFO - Application startup initiated
+2026-04-15 16:55:30 - app - INFO - Database initialization completed successfully
+2026-04-15 16:55:30 - app - INFO - Application ready to accept requests
+2026-04-15 16:55:30 - app - INFO - ============================================================
+2026-04-15 16:55:40 - app - INFO - ============================================================
+2026-04-15 16:55:40 - app - INFO - Application shutdown initiated
+2026-04-15 16:55:40 - app - INFO - ============================================================
+2026-04-15 16:55:41 - app - INFO - ============================================================
+2026-04-15 16:55:41 - app - INFO - Application startup initiated
+2026-04-15 16:55:41 - app - INFO - Database initialization completed successfully
+2026-04-15 16:55:41 - app - INFO - Application ready to accept requests
+2026-04-15 16:55:41 - app - INFO - ============================================================
+2026-04-15 16:56:36 - app - INFO - ============================================================
+2026-04-15 16:56:36 - app - INFO - Application shutdown initiated
+2026-04-15 16:56:36 - app - INFO - ============================================================
+2026-04-15 16:56:38 - app - INFO - ============================================================
+2026-04-15 16:56:38 - app - INFO - Application startup initiated
+2026-04-15 16:56:38 - app - INFO - Database initialization completed successfully
+2026-04-15 16:56:38 - app - INFO - Application ready to accept requests
+2026-04-15 16:56:38 - app - INFO - ============================================================
+2026-04-15 16:57:12 - app - DEBUG - GET /agents - Fetching agents with pagination: page=1, size=50
+2026-04-15 16:57:12 - app - DEBUG - Retrieved 4 agents, total: 4
+2026-04-15 16:57:41 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=bc22701e-843c-4b78-9580-8476f410e1fc
+2026-04-15 16:57:41 - app - INFO - LLM task queued successfully: task_id=bc22701e-843c-4b78-9580-8476f410e1fc, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-15 16:57:43 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-15 16:57:43 - app - DEBUG - Webhook signature header: True
+2026-04-15 16:57:43 - app - DEBUG - Webhook timestamp header: True
+2026-04-15 16:57:43 - app - DEBUG - Request content-type: Not set
+2026-04-15 16:57:43 - app - DEBUG - Request headers: {'host': 'localhost:8000', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, zstd', 'connection': 'keep-alive', 'user-agent': 'python-httpx/0.27.2', 'x-signature': 'cecad299e6304176c5e6ffc081d66509a212a1c776f4df0a2e7d8607d20ee7eb', 'x-timestamp': '2026-04-15T16:57:43.023095', 'content-length': '2423'}
+2026-04-15 16:57:43 - app - DEBUG - Received raw body size: 2423 bytes
+2026-04-15 16:57:43 - app - DEBUG - Received raw body (first 500 chars): b'{"task_id": "bc22701e-843c-4b78-9580-8476f410e1fc", "system_prompt": "You are a senior-level Python engineer with 15+ years of experience in building scalable systems, APIs, and automation tools.\\n\\nYou write clean, efficient, and production-ready code. You follow best practices, design patterns, and performance optimization techniques.\\n\\nYour behavior guidelines:\\n\\n* Always write readable, well-structured, and documented code.\\n* Prefer simplicity and maintainability over cleverness.\\n* Expla'
+2026-04-15 16:57:43 - app - INFO - Webhook endpoint response sent successfully
+2026-04-15 16:57:43 - app - INFO - Webhook response stored: webhook_responses/webhook_20260415_165743_026365.json

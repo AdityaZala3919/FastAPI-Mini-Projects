@@ -509,21 +509,28 @@ class ResponseService():
             
             async with httpx.AsyncClient() as webhook_client:
                 try:
-                    timestamp = datetime.now()
+                    timestamp_str = datetime.now().isoformat()
+                    payload_json = json.dumps(payload)
+                    payload_bytes = payload_json.encode()
+                    logger.debug(f"Webhook payload JSON: {payload_json}")
+                    logger.debug(f"Webhook payload bytes length: {len(payload_bytes)}")
                     signature = generate_signature(
-                        payload=json.dumps(payload),
-                        timestamp=timestamp,
+                        payload=payload_json,
+                        timestamp=timestamp_str,
                     )
                     headers = {
-                        "Content-Type": "application/json",
                         "X-Signature": signature,
-                        "X-Timestamp": str(timestamp),
+                        "X-Timestamp": timestamp_str,
                     }
-                    await webhook_client.post(
-                        url="https://webhook.site/e03c6176-ed2e-495a-8564-c3d67d494a43",
-                        content=json.dumps(payload),
+                    logger.debug(f"Webhook headers: {headers}")
+                    response = await webhook_client.post(
+                        # url="https://webhook.site/e03c6176-ed2e-495a-8564-c3d67d494a43",
+                        url="http://localhost:8000/llm-webhook",
+                        content=payload_bytes,
                         headers=headers,
                     )
+                    logger.debug(f"Webhook response status: {response.status_code}")
+                    logger.debug(f"Webhook response body: {response.text}")
                     logger.info(f"Webhook notification sent successfully: task_id={task_id}")
                 except Exception as webhook_error:
                     logger.error(f"Failed to send webhook notification: task_id={task_id}, error={str(webhook_error)}", exc_info=True)
@@ -666,7 +673,49 @@ class UserService():
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
         
     
-"""
-todo webhook endpoint
-        
-"""
+
+class WebhookService():
+    def __init__(self, session: Annotated[AsyncSession, Depends(get_session)]):
+        self.session = session
+    
+    async def process_webhook(
+        self,
+        raw: bytes,
+        x_signature: str,
+        x_timestamp: str = None,
+    ):
+        try:
+            logger.info(f"Processing webhook request")
+            logger.debug(f"Raw payload size: {len(raw)} bytes")
+            logger.debug(f"Raw payload (first 200 chars): {raw[:200]}")
+            
+            # Check if payload is empty
+            if not raw:
+                logger.error(f"Empty webhook payload received")
+                raise HTTPException(status_code=400, detail="Empty request body")
+            
+            # 🔐 Signature verification
+            logger.debug("Verifying webhook signature")
+            if not verify_signature(raw, x_signature, x_timestamp):
+                logger.warning(f"Webhook signature verification failed - potential security breach")
+                raise HTTPException(status_code=403, detail="Invalid signature")
+            
+            logger.debug("Webhook signature verified successfully")
+            
+            # Parse JSON payload
+            logger.debug("Parsing JSON payload")
+            try:
+                payload = json.loads(raw)
+            except json.JSONDecodeError as e:
+                logger.error(f"Invalid JSON in webhook payload: {str(e)}", exc_info=True)
+                raise HTTPException(status_code=400, detail="Invalid JSON in request body")
+            
+            logger.info(f"Webhook processed successfully - Payload keys: {list(payload.keys()) if isinstance(payload, dict) else 'N/A'}")
+            return payload
+            
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error(f"Error processing webhook: {str(e)}", exc_info=True)
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to process webhook")
+

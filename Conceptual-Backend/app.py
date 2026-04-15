@@ -1,6 +1,6 @@
 from uuid import UUID, uuid4
 from typing import Annotated
-from fastapi import FastAPI, Path, Body, Query, Depends, HTTPException, status
+from fastapi import FastAPI, Path, Body, Query, Depends, HTTPException, status, Request, Header
 from fastapi_pagination import Page, add_pagination, Params
 from fastapi_pagination.ext.sqlalchemy import paginate
 from fastapi.responses import RedirectResponse
@@ -11,6 +11,7 @@ from datetime import datetime
 import logging
 import logging.handlers
 import os
+import json
 
 from models import Prompts, Agents, User
 from schemas import (
@@ -37,6 +38,7 @@ from services import (
     AgentServices,
     ResponseService,
     UserService,
+    WebhookService,
 )
 from security import (
     verify_password,
@@ -474,6 +476,69 @@ async def get_result(
         logger.error(f"Error fetching task result {task_id}: {str(e)}", exc_info=True)
         raise
     
+@app.post(
+    "/llm-webhook",
+    tags=["Response"],
+    summary="Webhook for LLM task updates",
+    description="Receive webhook notifications for completed LLM tasks with signature verification for security",
+    response_description="Webhook payload processed successfully",
+)
+async def llm_webhook(
+    service: Annotated[WebhookService, Depends()],
+    request: Request,
+    x_signature: str = Header(None, description="HMAC signature for request verification"),
+    x_timestamp: str = Header(None, description="Timestamp used for signature generation"),
+) -> BaseResponse[dict]:
+    """Process LLM webhook notifications.
+    
+    This endpoint receives webhook callbacks from the LLM system containing task results.
+    All requests are verified using HMAC-SHA256 signature validation.
+    
+    - **x_signature**: HMAC signature header for request verification
+    - **x_timestamp**: Timestamp header used in signature generation
+    """
+    try:
+        logger.info("POST /llm-webhook - Webhook request received")
+        logger.debug(f"Webhook signature header: {bool(x_signature)}")
+        logger.debug(f"Webhook timestamp header: {bool(x_timestamp)}")
+        logger.debug(f"Request content-type: {request.headers.get('content-type', 'Not set')}")
+        logger.debug(f"Request headers: {dict(request.headers)}")
+        
+        raw = await request.body()
+        logger.debug(f"Received raw body size: {len(raw)} bytes")
+        logger.debug(f"Received raw body (first 500 chars): {raw[:500]}")
+        
+        result = await service.process_webhook(raw=raw, x_signature=x_signature, x_timestamp=x_timestamp)
+        
+        logger.info("Webhook endpoint response sent successfully")
+        
+        # Store webhook response as JSON
+        webhook_dir = "webhook_responses"
+        os.makedirs(webhook_dir, exist_ok=True)
+        
+        timestamp_filename = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+        webhook_file = os.path.join(webhook_dir, f"webhook_{timestamp_filename}.json")
+        
+        webhook_data = {
+            "timestamp": datetime.now().isoformat(),
+            "signature": x_signature,
+            "payload": json.loads(raw),
+            "response": result,
+        }
+        
+        with open(webhook_file, "w") as f:
+            json.dump(webhook_data, f, indent=2, default=str)
+        
+        logger.info(f"Webhook response stored: {webhook_file}")
+        
+        return BaseResponse(data=result)
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error in webhook endpoint: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to process webhook")
+
 # -------------------------------------------------------------------------
 
 @app.post("/register", tags=["User"])

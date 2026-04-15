@@ -31,10 +31,10 @@ def generate_signature(payload: str, timestamp: str):
         logger.error(f"Error generating signature: {str(e)}", exc_info=True)
         raise
 
-def verify_signature(payload: bytes, signature: str):
+def verify_signature(payload: bytes, signature: str, timestamp: str):
     try:
         logger.debug(f"Verifying signature...")
-        expected = generate_signature(payload)
+        expected = generate_signature(payload.decode(), timestamp)
         is_valid = hmac.compare_digest(expected, signature)
         if not is_valid:
             logger.warning(f"Signature verification failed - potential security breach detected")
