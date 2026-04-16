@@ -28,10 +28,11 @@ app = FastAPI(lifespan=lifespan)
 async def open_lock(
     id: UUID,
     session: Annotated[AsyncSession, Depends(get_session)],
-    api_key_header: UUID = Security(api_key_header),
+    api_key_header: str = Security(api_key_header),
 ):
     key_db = await session.scalar(select(Key.key).where(Key.id == id))
-    if key_db == api_key_header:
+    print(f"DB Key: {key_db}, Header Key: {api_key_header}")
+    if key_db and str(key_db) == api_key_header:
         return api_key_header
     raise HTTPException(
         status_code=status.HTTP_403_FORBIDDEN,
