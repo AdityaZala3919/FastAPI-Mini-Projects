@@ -17,7 +17,7 @@ logger.debug(f"Database URI configured (masked for security)")
 
 engine = create_async_engine(
     url=DB_URI,
-    echo=True,
+    echo=False,
     future=True,
     pool_size=5,
     max_overflow=10,

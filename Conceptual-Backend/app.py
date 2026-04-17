@@ -75,14 +75,15 @@ tags_metadata = [
 LOG_FILE = "app.log"
 log_level = logging.DEBUG
 
-logger = logging.getLogger(__name__)
-logger.setLevel(log_level)
-
 # Create formatters
 formatter = logging.Formatter(
     '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
+
+# Configure root logger so all modules use the same handlers
+root_logger = logging.getLogger()
+root_logger.setLevel(log_level)
 
 # Console handler
 console_handler = logging.StreamHandler()
@@ -98,9 +99,12 @@ file_handler = logging.handlers.RotatingFileHandler(
 file_handler.setLevel(log_level)
 file_handler.setFormatter(formatter)
 
-# Add handlers to logger
-logger.addHandler(console_handler)
-logger.addHandler(file_handler)
+# Add handlers to root logger (makes them apply to all modules)
+root_logger.addHandler(console_handler)
+root_logger.addHandler(file_handler)
+
+# Logger for app-specific use
+logger = logging.getLogger(__name__)
 
 def pagination_params(
     page: int = Query(1, ge=1),

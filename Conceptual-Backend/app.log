@@ -971,3 +971,52 @@
 2026-04-17 13:14:17 - app - INFO - Database initialization completed successfully
 2026-04-17 13:14:17 - app - INFO - Application ready to accept requests
 2026-04-17 13:14:17 - app - INFO - ============================================================
+2026-04-17 14:27:44 - app - INFO - ============================================================
+2026-04-17 14:27:44 - app - INFO - Application shutdown initiated
+2026-04-17 14:27:44 - app - INFO - ============================================================
+2026-04-17 14:27:56 - app - INFO - ============================================================
+2026-04-17 14:27:56 - app - INFO - Application startup initiated
+2026-04-17 14:27:56 - app - INFO - Database initialization completed successfully
+2026-04-17 14:27:56 - app - INFO - Application ready to accept requests
+2026-04-17 14:27:56 - app - INFO - ============================================================
+2026-04-17 14:32:07 - app - INFO - ============================================================
+2026-04-17 14:32:07 - app - INFO - Application shutdown initiated
+2026-04-17 14:32:07 - app - INFO - ============================================================
+2026-04-17 14:32:15 - app - INFO - ============================================================
+2026-04-17 14:32:15 - app - INFO - Application startup initiated
+2026-04-17 14:32:16 - app - INFO - Database initialization completed successfully
+2026-04-17 14:32:16 - app - INFO - Application ready to accept requests
+2026-04-17 14:32:16 - app - INFO - ============================================================
+2026-04-17 14:32:28 - app - INFO - ============================================================
+2026-04-17 14:32:28 - app - INFO - Application startup initiated
+2026-04-17 14:32:28 - app - INFO - Database initialization completed successfully
+2026-04-17 14:32:28 - app - INFO - Application ready to accept requests
+2026-04-17 14:32:28 - app - INFO - ============================================================
+2026-04-17 14:32:56 - app - INFO - ============================================================
+2026-04-17 14:32:56 - app - INFO - Application shutdown initiated
+2026-04-17 14:32:56 - app - INFO - ============================================================
+2026-04-17 14:33:05 - app - INFO - ============================================================
+2026-04-17 14:33:05 - app - INFO - Application startup initiated
+2026-04-17 14:33:05 - app - INFO - Database initialization completed successfully
+2026-04-17 14:33:05 - app - INFO - Application ready to accept requests
+2026-04-17 14:33:05 - app - INFO - ============================================================
+2026-04-17 14:35:12 - app - INFO - ============================================================
+2026-04-17 14:35:12 - app - INFO - Application shutdown initiated
+2026-04-17 14:35:12 - app - INFO - ============================================================
+2026-04-17 14:35:21 - app - INFO - ============================================================
+2026-04-17 14:35:21 - app - INFO - Application startup initiated
+2026-04-17 14:35:21 - database - INFO - Starting database table initialization
+2026-04-17 14:35:22 - database - INFO - Database tables created or verified successfully
+2026-04-17 14:35:22 - app - INFO - Database initialization completed successfully
+2026-04-17 14:35:22 - app - INFO - Application ready to accept requests
+2026-04-17 14:35:22 - app - INFO - ============================================================
+2026-04-17 14:36:41 - app - INFO - ============================================================
+2026-04-17 14:36:41 - app - INFO - Application shutdown initiated
+2026-04-17 14:36:41 - app - INFO - ============================================================
+2026-04-17 14:36:50 - app - INFO - ============================================================
+2026-04-17 14:36:50 - app - INFO - Application startup initiated
+2026-04-17 14:36:50 - database - INFO - Starting database table initialization
+2026-04-17 14:36:50 - database - INFO - Database tables created or verified successfully
+2026-04-17 14:36:50 - app - INFO - Database initialization completed successfully
+2026-04-17 14:36:50 - app - INFO - Application ready to accept requests
+2026-04-17 14:36:50 - app - INFO - ============================================================
