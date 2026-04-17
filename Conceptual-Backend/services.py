@@ -25,6 +25,7 @@ from schemas import (
     UserResponse,
 )
 from security import generate_signature, verify_signature, hash_password
+from utils import retry_func
 
 load_dotenv()
 
@@ -444,6 +445,49 @@ class ResponseService():
             logger.error(f"Error storing task info: task_id={task_id}, status={status}, error={str(e)}", exc_info=True)
             raise
     
+    async def _send_webhook(
+        self,
+        task_id: UUID,
+        prompt: str,
+        user_input: str,
+        result: str,
+        webhook_url: str = "http://localhost:8000/llm-webhook",
+    ):
+        payload = {
+            "task_id": str(task_id),
+            "system_prompt": prompt,
+            "user_input": user_input,
+            "result": result,
+        }
+        
+        async with httpx.AsyncClient() as webhook_client:
+            try:
+                timestamp_str = datetime.now().isoformat()
+                payload_json = json.dumps(payload)
+                payload_bytes = payload_json.encode()
+                logger.debug(f"Webhook payload JSON: {payload_json}")
+                logger.debug(f"Webhook payload bytes length: {len(payload_bytes)}")
+                signature = generate_signature(
+                    payload=payload_json,
+                    timestamp=timestamp_str,
+                )
+                headers = {
+                    "X-Signature": signature,
+                    "X-Timestamp": timestamp_str,
+                }
+                logger.debug(f"Webhook headers: {headers}")
+                response = await webhook_client.post(
+                    url=webhook_url,
+                    content=payload_bytes,
+                    headers=headers,
+                )
+                logger.debug(f"Webhook response status: {response.status_code}")
+                logger.debug(f"Webhook response body: {response.text}")
+                logger.info(f"Webhook notification sent successfully: task_id={task_id}")
+            except Exception as webhook_error:
+                logger.error(f"Failed to send webhook notification: task_id={task_id}, error={str(webhook_error)}", exc_info=True)
+    
+    @retry_func(max_attempts=3, min_wait=10.0, max_wait=60.0)
     async def _call_llm_worker(
         self,
         task_id: UUID,
@@ -497,56 +541,23 @@ class ResponseService():
                 result=result,
             )
             
-            # Send webhook notification
-            payload = {
-                "task_id": str(task_id),
-                "system_prompt": prompt,
-                "user_input": user_input,
-                "result": result,
-            }
-            
             logger.debug(f"Sending webhook notification: task_id={task_id}")
-            
-            async with httpx.AsyncClient() as webhook_client:
-                try:
-                    timestamp_str = datetime.now().isoformat()
-                    payload_json = json.dumps(payload)
-                    payload_bytes = payload_json.encode()
-                    logger.debug(f"Webhook payload JSON: {payload_json}")
-                    logger.debug(f"Webhook payload bytes length: {len(payload_bytes)}")
-                    signature = generate_signature(
-                        payload=payload_json,
-                        timestamp=timestamp_str,
-                    )
-                    headers = {
-                        "X-Signature": signature,
-                        "X-Timestamp": timestamp_str,
-                    }
-                    logger.debug(f"Webhook headers: {headers}")
-                    response = await webhook_client.post(
-                        # url="https://webhook.site/e03c6176-ed2e-495a-8564-c3d67d494a43",
-                        url="http://localhost:8000/llm-webhook",
-                        content=payload_bytes,
-                        headers=headers,
-                    )
-                    logger.debug(f"Webhook response status: {response.status_code}")
-                    logger.debug(f"Webhook response body: {response.text}")
-                    logger.info(f"Webhook notification sent successfully: task_id={task_id}")
-                except Exception as webhook_error:
-                    logger.error(f"Failed to send webhook notification: task_id={task_id}, error={str(webhook_error)}", exc_info=True)
-                    # Continue gracefully - webhook failure shouldn't fail the task
-        
+            await self._send_webhook(
+                task_id=task_id,
+                prompt=prompt,
+                user_input=user_input,
+                result=result,
+                webhook_url="http://localhost:8000/llm-webhook",
+            )
         except Exception as e:
             logger.error(f"Error in LLM worker: task_id={task_id}, agent_id={agent_id}, error={str(e)}", exc_info=True)
-            try:
-                await self._store_task_info(
-                    agent_id=agent_id,
-                    task_id=task_id,
-                    status="failed",
-                    result=f"Error: {str(e)}",
-                )
-            except Exception as store_error:
-                logger.error(f"Failed to store failed task info: task_id={task_id}, error={str(store_error)}", exc_info=True)
+            await self._store_task_info(
+                agent_id=agent_id,
+                task_id=task_id,
+                status="failed",
+                result=f"Error: {str(e)}",
+            )
+            raise
             
     async def start_llm_task(
         self,

@@ -664,3 +664,252 @@
 2026-04-15 16:57:43 - app - DEBUG - Received raw body (first 500 chars): b'{"task_id": "bc22701e-843c-4b78-9580-8476f410e1fc", "system_prompt": "You are a senior-level Python engineer with 15+ years of experience in building scalable systems, APIs, and automation tools.\\n\\nYou write clean, efficient, and production-ready code. You follow best practices, design patterns, and performance optimization techniques.\\n\\nYour behavior guidelines:\\n\\n* Always write readable, well-structured, and documented code.\\n* Prefer simplicity and maintainability over cleverness.\\n* Expla'
 2026-04-15 16:57:43 - app - INFO - Webhook endpoint response sent successfully
 2026-04-15 16:57:43 - app - INFO - Webhook response stored: webhook_responses/webhook_20260415_165743_026365.json
+2026-04-15 17:28:48 - app - INFO - ============================================================
+2026-04-15 17:28:48 - app - INFO - Application shutdown initiated
+2026-04-15 17:28:48 - app - INFO - ============================================================
+2026-04-17 12:00:11 - app - INFO - ============================================================
+2026-04-17 12:00:11 - app - INFO - Application startup initiated
+2026-04-17 12:00:11 - app - INFO - Database initialization completed successfully
+2026-04-17 12:00:11 - app - INFO - Application ready to accept requests
+2026-04-17 12:00:11 - app - INFO - ============================================================
+2026-04-17 12:03:29 - app - INFO - Login request received: username=adityazala
+2026-04-17 12:03:30 - app - DEBUG - User credentials verified: username=adityazala, user_id=e5c97a41-2e51-4718-b7d7-15fa2ac660cb
+2026-04-17 12:03:30 - app - INFO - User logged in successfully: username=adityazala, user_id=e5c97a41-2e51-4718-b7d7-15fa2ac660cb
+2026-04-17 12:03:38 - app - INFO - Login request received: username=adityazala
+2026-04-17 12:03:38 - app - WARNING - Login attempt failed: invalid credentials for username=adityazala
+2026-04-17 12:03:44 - app - INFO - Login request received: username=adityazala
+2026-04-17 12:03:44 - app - DEBUG - User credentials verified: username=adityazala, user_id=e5c97a41-2e51-4718-b7d7-15fa2ac660cb
+2026-04-17 12:03:44 - app - INFO - User logged in successfully: username=adityazala, user_id=e5c97a41-2e51-4718-b7d7-15fa2ac660cb
+2026-04-17 12:03:48 - app - INFO - Login request received: username=adityazala
+2026-04-17 12:03:48 - app - DEBUG - User credentials verified: username=adityazala, user_id=e5c97a41-2e51-4718-b7d7-15fa2ac660cb
+2026-04-17 12:03:48 - app - INFO - User logged in successfully: username=adityazala, user_id=e5c97a41-2e51-4718-b7d7-15fa2ac660cb
+2026-04-17 12:04:27 - app - DEBUG - GET /agent/result/0ff965e8-e078-4d68-a7d6-b8e8e563f2cb - Retrieving task information
+2026-04-17 12:04:27 - app - DEBUG - Task retrieved: 0ff965e8-e078-4d68-a7d6-b8e8e563f2cb, status=success
+2026-04-17 12:04:45 - app - DEBUG - GET /agents - Fetching agents with pagination: page=1, size=50
+2026-04-17 12:04:45 - app - DEBUG - Retrieved 4 agents, total: 4
+2026-04-17 12:05:11 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=4c6b0516-9d2c-400d-8f0c-b6bd27ad08cc
+2026-04-17 12:05:11 - app - INFO - LLM task queued successfully: task_id=4c6b0516-9d2c-400d-8f0c-b6bd27ad08cc, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:05:25 - app - DEBUG - GET /agent/result/4c6b0516-9d2c-400d-8f0c-b6bd27ad08cc - Retrieving task information
+2026-04-17 12:05:25 - app - DEBUG - Task retrieved: 4c6b0516-9d2c-400d-8f0c-b6bd27ad08cc, status=success
+2026-04-17 12:07:56 - app - INFO - ============================================================
+2026-04-17 12:07:56 - app - INFO - Application shutdown initiated
+2026-04-17 12:07:56 - app - INFO - ============================================================
+2026-04-17 12:07:58 - app - INFO - ============================================================
+2026-04-17 12:07:58 - app - INFO - Application startup initiated
+2026-04-17 12:07:58 - app - INFO - Database initialization completed successfully
+2026-04-17 12:07:58 - app - INFO - Application ready to accept requests
+2026-04-17 12:07:58 - app - INFO - ============================================================
+2026-04-17 12:08:03 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=3a09a6f2-d63b-4252-9d1b-17e7dc9c991c
+2026-04-17 12:08:03 - app - INFO - LLM task queued successfully: task_id=3a09a6f2-d63b-4252-9d1b-17e7dc9c991c, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:08:21 - app - DEBUG - GET /agent/result/3a09a6f2-d63b-4252-9d1b-17e7dc9c991c - Retrieving task information
+2026-04-17 12:08:21 - app - DEBUG - Task retrieved: 3a09a6f2-d63b-4252-9d1b-17e7dc9c991c, status=failed
+2026-04-17 12:10:37 - app - INFO - ============================================================
+2026-04-17 12:10:37 - app - INFO - Application shutdown initiated
+2026-04-17 12:10:37 - app - INFO - ============================================================
+2026-04-17 12:10:38 - app - INFO - ============================================================
+2026-04-17 12:10:38 - app - INFO - Application startup initiated
+2026-04-17 12:10:38 - app - INFO - Database initialization completed successfully
+2026-04-17 12:10:38 - app - INFO - Application ready to accept requests
+2026-04-17 12:10:38 - app - INFO - ============================================================
+2026-04-17 12:10:39 - app - INFO - ============================================================
+2026-04-17 12:10:39 - app - INFO - Application shutdown initiated
+2026-04-17 12:10:39 - app - INFO - ============================================================
+2026-04-17 12:10:40 - app - INFO - ============================================================
+2026-04-17 12:10:40 - app - INFO - Application startup initiated
+2026-04-17 12:10:40 - app - INFO - Database initialization completed successfully
+2026-04-17 12:10:40 - app - INFO - Application ready to accept requests
+2026-04-17 12:10:40 - app - INFO - ============================================================
+2026-04-17 12:10:45 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=0055743b-d3ae-4c09-8a4a-6f3a422bea06
+2026-04-17 12:10:45 - app - INFO - LLM task queued successfully: task_id=0055743b-d3ae-4c09-8a4a-6f3a422bea06, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:10:46 - app - INFO - POST /llm-webhook - Webhook request received
+2026-04-17 12:10:46 - app - DEBUG - Webhook signature header: True
+2026-04-17 12:10:46 - app - DEBUG - Webhook timestamp header: True
+2026-04-17 12:10:46 - app - DEBUG - Request content-type: Not set
+2026-04-17 12:10:46 - app - DEBUG - Request headers: {'host': 'localhost:8000', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, zstd', 'connection': 'keep-alive', 'user-agent': 'python-httpx/0.27.2', 'x-signature': '1251086dbba8e492f47b1b6a90d3e59f0f1b122584cfce0f4f26b542f4230a2c', 'x-timestamp': '2026-04-17T12:10:46.871782', 'content-length': '3550'}
+2026-04-17 12:10:46 - app - DEBUG - Received raw body size: 3550 bytes
+2026-04-17 12:10:46 - app - DEBUG - Received raw body (first 500 chars): b'{"task_id": "0055743b-d3ae-4c09-8a4a-6f3a422bea06", "system_prompt": "You are a senior-level Python engineer with 15+ years of experience in building scalable systems, APIs, and automation tools.\\n\\nYou write clean, efficient, and production-ready code. You follow best practices, design patterns, and performance optimization techniques.\\n\\nYour behavior guidelines:\\n\\n* Always write readable, well-structured, and documented code.\\n* Prefer simplicity and maintainability over cleverness.\\n* Expla'
+2026-04-17 12:10:46 - app - INFO - Webhook endpoint response sent successfully
+2026-04-17 12:10:46 - app - INFO - Webhook response stored: webhook_responses/webhook_20260417_121046_875049.json
+2026-04-17 12:11:04 - app - DEBUG - GET /agent/result/0055743b-d3ae-4c09-8a4a-6f3a422bea06 - Retrieving task information
+2026-04-17 12:11:04 - app - DEBUG - Task retrieved: 0055743b-d3ae-4c09-8a4a-6f3a422bea06, status=success
+2026-04-17 12:11:27 - app - INFO - ============================================================
+2026-04-17 12:11:27 - app - INFO - Application shutdown initiated
+2026-04-17 12:11:27 - app - INFO - ============================================================
+2026-04-17 12:11:28 - app - INFO - ============================================================
+2026-04-17 12:11:28 - app - INFO - Application startup initiated
+2026-04-17 12:11:28 - app - INFO - Database initialization completed successfully
+2026-04-17 12:11:28 - app - INFO - Application ready to accept requests
+2026-04-17 12:11:28 - app - INFO - ============================================================
+2026-04-17 12:12:22 - app - INFO - ============================================================
+2026-04-17 12:12:22 - app - INFO - Application shutdown initiated
+2026-04-17 12:12:22 - app - INFO - ============================================================
+2026-04-17 12:12:48 - app - INFO - ============================================================
+2026-04-17 12:12:48 - app - INFO - Application startup initiated
+2026-04-17 12:12:48 - app - INFO - Database initialization completed successfully
+2026-04-17 12:12:48 - app - INFO - Application ready to accept requests
+2026-04-17 12:12:48 - app - INFO - ============================================================
+2026-04-17 12:13:12 - app - INFO - ============================================================
+2026-04-17 12:13:12 - app - INFO - Application shutdown initiated
+2026-04-17 12:13:12 - app - INFO - ============================================================
+2026-04-17 12:13:13 - app - INFO - ============================================================
+2026-04-17 12:13:13 - app - INFO - Application startup initiated
+2026-04-17 12:13:13 - app - INFO - Database initialization completed successfully
+2026-04-17 12:13:13 - app - INFO - Application ready to accept requests
+2026-04-17 12:13:13 - app - INFO - ============================================================
+2026-04-17 12:13:18 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=6935e105-01bf-4d18-88af-93561ff7551f
+2026-04-17 12:13:18 - app - INFO - LLM task queued successfully: task_id=6935e105-01bf-4d18-88af-93561ff7551f, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:13:36 - app - DEBUG - GET /agent/result/6935e105-01bf-4d18-88af-93561ff7551f - Retrieving task information
+2026-04-17 12:13:36 - app - DEBUG - Task retrieved: 6935e105-01bf-4d18-88af-93561ff7551f, status=failed
+2026-04-17 12:15:53 - app - INFO - ============================================================
+2026-04-17 12:15:53 - app - INFO - Application shutdown initiated
+2026-04-17 12:15:53 - app - INFO - ============================================================
+2026-04-17 12:15:54 - app - INFO - ============================================================
+2026-04-17 12:15:54 - app - INFO - Application startup initiated
+2026-04-17 12:15:54 - app - INFO - Database initialization completed successfully
+2026-04-17 12:15:54 - app - INFO - Application ready to accept requests
+2026-04-17 12:15:54 - app - INFO - ============================================================
+2026-04-17 12:16:03 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=09e1a3ed-00a0-49c0-899c-b1ca6eb5e0c0
+2026-04-17 12:16:03 - app - INFO - LLM task queued successfully: task_id=09e1a3ed-00a0-49c0-899c-b1ca6eb5e0c0, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:16:38 - app - INFO - ============================================================
+2026-04-17 12:16:38 - app - INFO - Application shutdown initiated
+2026-04-17 12:16:38 - app - INFO - ============================================================
+2026-04-17 12:16:39 - app - INFO - ============================================================
+2026-04-17 12:16:39 - app - INFO - Application startup initiated
+2026-04-17 12:16:39 - app - INFO - Database initialization completed successfully
+2026-04-17 12:16:39 - app - INFO - Application ready to accept requests
+2026-04-17 12:16:39 - app - INFO - ============================================================
+2026-04-17 12:16:42 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=96f47fa7-f26b-4366-aa19-b351bbf8b75f
+2026-04-17 12:16:42 - app - INFO - LLM task queued successfully: task_id=96f47fa7-f26b-4366-aa19-b351bbf8b75f, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:17:21 - app - INFO - ============================================================
+2026-04-17 12:17:21 - app - INFO - Application shutdown initiated
+2026-04-17 12:17:21 - app - INFO - ============================================================
+2026-04-17 12:17:22 - app - INFO - ============================================================
+2026-04-17 12:17:22 - app - INFO - Application startup initiated
+2026-04-17 12:17:22 - app - INFO - Database initialization completed successfully
+2026-04-17 12:17:22 - app - INFO - Application ready to accept requests
+2026-04-17 12:17:22 - app - INFO - ============================================================
+2026-04-17 12:17:28 - app - INFO - ============================================================
+2026-04-17 12:17:28 - app - INFO - Application shutdown initiated
+2026-04-17 12:17:28 - app - INFO - ============================================================
+2026-04-17 12:17:30 - app - INFO - ============================================================
+2026-04-17 12:17:30 - app - INFO - Application startup initiated
+2026-04-17 12:17:30 - app - INFO - Database initialization completed successfully
+2026-04-17 12:17:30 - app - INFO - Application ready to accept requests
+2026-04-17 12:17:30 - app - INFO - ============================================================
+2026-04-17 12:17:42 - app - INFO - ============================================================
+2026-04-17 12:17:42 - app - INFO - Application shutdown initiated
+2026-04-17 12:17:42 - app - INFO - ============================================================
+2026-04-17 12:17:44 - app - INFO - ============================================================
+2026-04-17 12:17:44 - app - INFO - Application startup initiated
+2026-04-17 12:17:44 - app - INFO - Database initialization completed successfully
+2026-04-17 12:17:44 - app - INFO - Application ready to accept requests
+2026-04-17 12:17:44 - app - INFO - ============================================================
+2026-04-17 12:17:49 - app - INFO - ============================================================
+2026-04-17 12:17:49 - app - INFO - Application shutdown initiated
+2026-04-17 12:17:49 - app - INFO - ============================================================
+2026-04-17 12:17:51 - app - INFO - ============================================================
+2026-04-17 12:17:51 - app - INFO - Application startup initiated
+2026-04-17 12:17:51 - app - INFO - Database initialization completed successfully
+2026-04-17 12:17:51 - app - INFO - Application ready to accept requests
+2026-04-17 12:17:51 - app - INFO - ============================================================
+2026-04-17 12:19:00 - app - INFO - ============================================================
+2026-04-17 12:19:00 - app - INFO - Application shutdown initiated
+2026-04-17 12:19:00 - app - INFO - ============================================================
+2026-04-17 12:19:01 - app - INFO - ============================================================
+2026-04-17 12:19:01 - app - INFO - Application startup initiated
+2026-04-17 12:19:01 - app - INFO - Database initialization completed successfully
+2026-04-17 12:19:01 - app - INFO - Application ready to accept requests
+2026-04-17 12:19:01 - app - INFO - ============================================================
+2026-04-17 12:19:17 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=c8a0ba4c-1e6e-405f-8480-bd75ce5887cd
+2026-04-17 12:19:17 - app - INFO - LLM task queued successfully: task_id=c8a0ba4c-1e6e-405f-8480-bd75ce5887cd, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:19:47 - app - INFO - ============================================================
+2026-04-17 12:19:47 - app - INFO - Application shutdown initiated
+2026-04-17 12:19:47 - app - INFO - ============================================================
+2026-04-17 12:19:48 - app - INFO - ============================================================
+2026-04-17 12:19:48 - app - INFO - Application startup initiated
+2026-04-17 12:19:48 - app - INFO - Database initialization completed successfully
+2026-04-17 12:19:48 - app - INFO - Application ready to accept requests
+2026-04-17 12:19:48 - app - INFO - ============================================================
+2026-04-17 12:19:53 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=6e4a1b18-2419-4abe-8687-cf5794da8038
+2026-04-17 12:19:53 - app - INFO - LLM task queued successfully: task_id=6e4a1b18-2419-4abe-8687-cf5794da8038, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:20:12 - app - INFO - ============================================================
+2026-04-17 12:20:12 - app - INFO - Application shutdown initiated
+2026-04-17 12:20:12 - app - INFO - ============================================================
+2026-04-17 12:20:13 - app - INFO - ============================================================
+2026-04-17 12:20:13 - app - INFO - Application startup initiated
+2026-04-17 12:20:13 - app - INFO - Database initialization completed successfully
+2026-04-17 12:20:13 - app - INFO - Application ready to accept requests
+2026-04-17 12:20:13 - app - INFO - ============================================================
+2026-04-17 12:20:18 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=f796859d-e95d-4128-9c63-98f03cbaaceb
+2026-04-17 12:20:18 - app - INFO - LLM task queued successfully: task_id=f796859d-e95d-4128-9c63-98f03cbaaceb, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:20:54 - app - INFO - ============================================================
+2026-04-17 12:20:54 - app - INFO - Application shutdown initiated
+2026-04-17 12:20:54 - app - INFO - ============================================================
+2026-04-17 12:20:55 - app - INFO - ============================================================
+2026-04-17 12:20:55 - app - INFO - Application startup initiated
+2026-04-17 12:20:55 - app - INFO - Database initialization completed successfully
+2026-04-17 12:20:55 - app - INFO - Application ready to accept requests
+2026-04-17 12:20:55 - app - INFO - ============================================================
+2026-04-17 12:21:00 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=53711f61-49d1-4915-a3aa-fec9ab0561e8
+2026-04-17 12:21:00 - app - INFO - LLM task queued successfully: task_id=53711f61-49d1-4915-a3aa-fec9ab0561e8, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:21:14 - app - INFO - ============================================================
+2026-04-17 12:21:14 - app - INFO - Application shutdown initiated
+2026-04-17 12:21:14 - app - INFO - ============================================================
+2026-04-17 12:22:14 - app - INFO - ============================================================
+2026-04-17 12:22:14 - app - INFO - Application startup initiated
+2026-04-17 12:22:14 - app - INFO - Database initialization completed successfully
+2026-04-17 12:22:14 - app - INFO - Application ready to accept requests
+2026-04-17 12:22:14 - app - INFO - ============================================================
+2026-04-17 12:22:20 - app - INFO - ============================================================
+2026-04-17 12:22:20 - app - INFO - Application shutdown initiated
+2026-04-17 12:22:20 - app - INFO - ============================================================
+2026-04-17 12:22:21 - app - INFO - ============================================================
+2026-04-17 12:22:21 - app - INFO - Application startup initiated
+2026-04-17 12:22:21 - app - INFO - Database initialization completed successfully
+2026-04-17 12:22:21 - app - INFO - Application ready to accept requests
+2026-04-17 12:22:21 - app - INFO - ============================================================
+2026-04-17 12:22:31 - app - INFO - ============================================================
+2026-04-17 12:22:31 - app - INFO - Application shutdown initiated
+2026-04-17 12:22:31 - app - INFO - ============================================================
+2026-04-17 12:22:32 - app - INFO - ============================================================
+2026-04-17 12:22:32 - app - INFO - Application startup initiated
+2026-04-17 12:22:32 - app - INFO - Database initialization completed successfully
+2026-04-17 12:22:32 - app - INFO - Application ready to accept requests
+2026-04-17 12:22:32 - app - INFO - ============================================================
+2026-04-17 12:22:53 - app - INFO - ============================================================
+2026-04-17 12:22:53 - app - INFO - Application shutdown initiated
+2026-04-17 12:22:53 - app - INFO - ============================================================
+2026-04-17 12:22:54 - app - INFO - ============================================================
+2026-04-17 12:22:54 - app - INFO - Application startup initiated
+2026-04-17 12:22:55 - app - INFO - Database initialization completed successfully
+2026-04-17 12:22:55 - app - INFO - Application ready to accept requests
+2026-04-17 12:22:55 - app - INFO - ============================================================
+2026-04-17 12:22:56 - app - INFO - POST /agent/task/632a96e6-8005-42bb-93c3-357bb42db7ef - Starting LLM task: task_id=7a9f8a13-8b14-4d1e-af53-fd2c88863830
+2026-04-17 12:22:56 - app - INFO - LLM task queued successfully: task_id=7a9f8a13-8b14-4d1e-af53-fd2c88863830, agent_id=632a96e6-8005-42bb-93c3-357bb42db7ef
+2026-04-17 12:23:21 - app - INFO - ============================================================
+2026-04-17 12:23:21 - app - INFO - Application shutdown initiated
+2026-04-17 12:23:21 - app - INFO - ============================================================
+2026-04-17 12:23:22 - app - INFO - ============================================================
+2026-04-17 12:23:22 - app - INFO - Application startup initiated
+2026-04-17 12:23:22 - app - INFO - Database initialization completed successfully
+2026-04-17 12:23:22 - app - INFO - Application ready to accept requests
+2026-04-17 12:23:22 - app - INFO - ============================================================
+2026-04-17 12:23:26 - app - INFO - ============================================================
+2026-04-17 12:23:26 - app - INFO - Application shutdown initiated
+2026-04-17 12:23:26 - app - INFO - ============================================================
+2026-04-17 12:23:27 - app - INFO - ============================================================
+2026-04-17 12:23:27 - app - INFO - Application startup initiated
+2026-04-17 12:23:27 - app - INFO - Database initialization completed successfully
+2026-04-17 12:23:27 - app - INFO - Application ready to accept requests
+2026-04-17 12:23:27 - app - INFO - ============================================================
+2026-04-17 12:23:34 - app - INFO - ============================================================
+2026-04-17 12:23:34 - app - INFO - Application shutdown initiated
+2026-04-17 12:23:34 - app - INFO - ============================================================
+2026-04-17 12:23:35 - app - INFO - ============================================================
+2026-04-17 12:23:35 - app - INFO - Application startup initiated
+2026-04-17 12:23:35 - app - INFO - Database initialization completed successfully
+2026-04-17 12:23:35 - app - INFO - Application ready to accept requests
+2026-04-17 12:23:35 - app - INFO - ============================================================
+2026-04-17 12:23:58 - app - INFO - ============================================================
+2026-04-17 12:23:58 - app - INFO - Application shutdown initiated
+2026-04-17 12:23:58 - app - INFO - ============================================================
