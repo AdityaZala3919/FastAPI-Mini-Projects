@@ -12,6 +12,8 @@ import logging
 import logging.handlers
 import os
 import json
+import sentry_sdk
+from dotenv import load_dotenv
 
 from models import Prompts, Agents, User
 from schemas import (
@@ -44,6 +46,13 @@ from security import (
     verify_password,
     create_access_token,
     get_current_user,
+)
+
+load_dotenv()
+
+sentry_sdk.init(
+    dsn=os.getenv("SENTRY_DSN"),
+    send_default_pii=True,
 )
 
 # Tags metadata for Swagger UI organization
@@ -143,6 +152,10 @@ add_pagination(app)
 @app.get("/")
 def get_root():
     return RedirectResponse("/docs")
+
+@app.get("/health")
+def get_health():
+    return {"status": "Ok"}
 
 @app.post(
     "/create/prompt",
