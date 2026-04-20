@@ -1020,3 +1020,8 @@
 2026-04-17 14:36:50 - app - INFO - Database initialization completed successfully
 2026-04-17 14:36:50 - app - INFO - Application ready to accept requests
 2026-04-17 14:36:50 - app - INFO - ============================================================
+2026-04-17 14:38:56 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): o4511234166358016.ingest.de.sentry.io:443
+2026-04-17 14:38:56 - urllib3.connectionpool - DEBUG - https://o4511234166358016.ingest.de.sentry.io:443 "POST /api/4511234168586320/envelope/ HTTP/1.1" 200 0
+2026-04-17 17:28:35 - app - INFO - ============================================================
+2026-04-17 17:28:35 - app - INFO - Application shutdown initiated
+2026-04-17 17:28:35 - app - INFO - ============================================================

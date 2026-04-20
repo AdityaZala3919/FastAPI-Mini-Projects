@@ -32,7 +32,8 @@ from schemas import (
     TaskResponse,
     UserRegisterRequest,
     UserLoginRequest,
-    UserResponse,
+    UserRegisterResponse,
+    UserLoginResponse,
 )
 from database import get_session, init_db
 from services import (
@@ -45,6 +46,7 @@ from services import (
 from security import (
     verify_password,
     create_access_token,
+    create_refresh_token,
     get_current_user,
 )
 
@@ -558,11 +560,17 @@ async def llm_webhook(
 
 # -------------------------------------------------------------------------
 
+@app.post("/refresh", tags=["User"])
+async def refresh_token(
+    
+):
+    pass
+
 @app.post("/register", tags=["User"])
 async def register_user(
     service: Annotated[UserService, Depends()],
     request: Annotated[UserRegisterRequest, Body()],
-) -> BaseResponse[UserResponse]:
+) -> BaseResponse[UserRegisterResponse]:
     try:
         logger.info(f"Registration request received: username={request.username}")
         result = await service.create_user(**request.model_dump())
@@ -578,7 +586,7 @@ async def register_user(
 async def login_user(
     service: Annotated[UserService, Depends()],
     request: Annotated[UserLoginRequest, Body()],
-):
+) -> BaseResponse[UserLoginResponse]:
     try:
         logger.info(f"Login request received: username={request.username}")
         user = await service.get_user(username=request.username)
@@ -588,13 +596,15 @@ async def login_user(
             raise HTTPException(status_code=401, detail="Invalid credentials")
         
         logger.debug(f"User credentials verified: username={request.username}, user_id={user.user_id}")
-        token = await create_access_token(user_id=str(user.user_id))
+        access_token = await create_access_token(user_id=str(user.user_id))
+        refresh_token = await create_refresh_token(user_id=str(user.user_id))
         
         logger.info(f"User logged in successfully: username={request.username}, user_id={user.user_id}")
-        return {
-            "access_token": token,
-            "token_type": "bearer"
-        }
+        result = UserLoginResponse(
+            access_token = access_token,
+            refresh_token = refresh_token,
+        )
+        return BaseResponse(data=result)
     except HTTPException:
         raise
     except Exception as e:

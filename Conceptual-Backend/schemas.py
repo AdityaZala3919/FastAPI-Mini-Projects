@@ -86,7 +86,12 @@ class UserLoginRequest(BaseModel):
     username: Optional[str] = None
     password: Optional[str] = None
 
-class UserResponse(BaseModel):
+class UserRegisterResponse(BaseModel):
     user_id: UUID
     username: str
     password: str
+
+class UserLoginResponse(BaseModel):
+    access_token: str
+    refresh_token: str
+    token_type: str = "bearer"

@@ -3,6 +3,7 @@ import hashlib
 import logging
 import bcrypt
 import jwt
+from uuid import uuid4
 from datetime import datetime, timedelta
 from fastapi import HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
@@ -73,13 +74,31 @@ async def create_access_token(user_id: str):
         logger.debug(f"Creating access token for user_id={user_id}")
         payload = {
             "sub": user_id,
-            "exp": datetime.now() + timedelta(hours=2)
+            "exp": datetime.now() + timedelta(minutes=5),
+            "jti": str(uuid4()),
+            "type": "access"
         }
         token = jwt.encode(payload=payload, key=JWT_SECRET_KEY, algorithm=ALGORITHM)
         logger.info(f"Access token created successfully for user_id={user_id}")
         return token
     except Exception as e:
         logger.error(f"Error creating access token for user_id={user_id}: {str(e)}", exc_info=True)
+        raise
+
+async def create_refresh_token(user_id: str):
+    try:
+        logger.debug(f"Creating refresh token for user_id={user_id}")
+        payload = {
+            "sub": user_id,
+            "exp": datetime.now() + timedelta(days=7),
+            "jti": str(uuid4()),
+            "type": "refresh"
+        }
+        token = jwt.encode(payload, JWT_SECRET_KEY, algorithm=ALGORITHM)
+        logger.info(f"Refresh token created successfully for user_id={user_id}")
+        return token
+    except Exception as e:
+        logger.error(f"Error creating refresh token for user_id={user_id}: {str(e)}", exc_info=True)
         raise
 
 async def decode_token(token: str):

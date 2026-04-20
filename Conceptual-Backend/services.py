@@ -625,7 +625,18 @@ class ResponseService():
 class UserService():
     def __init__(self, session: Annotated[AsyncSession, Depends(get_session)]):
         self.session = session
-        
+    
+    async def refresh_access_token(
+        self,
+        refresh_token: str,
+    ):
+        new_access_token = ""
+        new_refresh_token = ""
+        return {
+            "access_token": new_access_token,
+            "refresh_token": new_refresh_token
+        }
+    
     async def create_user(
         self,
         username: str,
