@@ -12,7 +12,7 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(String(100))
+    name: Mapped[str] = mapped_column(String(100), unique=True)
 
     # One-to-many relationship
     posts: Mapped[List["Post"]] = relationship(
@@ -44,7 +44,7 @@ Base.metadata.create_all(engine)
 
 with Session(engine) as session:
     # Create user
-    user = User(name="Aditya1")
+    user = User(name="Aditya2")
 
     # Create posts
     post1 = Post(title="First Post")
