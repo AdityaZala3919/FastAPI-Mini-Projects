@@ -1,3 +1,6 @@
 *__pycache__*
 *camel_to_snake.py
 *.env*
+.claude
+*test*
+.deepeval
